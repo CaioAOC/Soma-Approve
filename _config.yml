@@ -1,0 +1,16 @@
+# GitHub Pages configuration
+# Excluir arquivos que podem quebrar o processamento Liquid
+
+exclude:
+  - README.md
+  - DESIGN_SYSTEM.md
+  - GUIA_DE_USO.md
+  - ATTRIBUTIONS.md
+  - node_modules/
+  - src/
+  - server/
+  - package.json
+  - package-lock.json
+  - .env
+  - .env.example
+  - .gitignore

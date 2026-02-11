@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: soma-approve-backend
+    env: node
+    region: oregon
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAILS
+        value: admin@soma.com
+      - key: ALLOWED_ORIGINS
+        value: http://localhost:5173
+      - key: NODE_ENV
+        value: production

@@ -1,0 +1,178 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* SOMA Color Palette */
+  --soma-purple-primary: #8c52ff;
+  --soma-purple-secondary: #a77bff;
+  --soma-purple-light: #b27dff;
+  --soma-purple-soft: #c58aff;
+  
+  --soma-bg-dark: #0b0612;
+  --soma-bg-card: rgba(11, 6, 18, 0.8);
+  --soma-white: #FFFFFF;
+  --soma-text-gray: rgba(255, 255, 255, 0.6);
+  --soma-border-gray: rgba(255, 255, 255, 0.1);
+  
+  --soma-success: #10B981;
+  --soma-error: #EF4444;
+  --soma-warning: #F59E0B;
+  --soma-info: #3B82F6;
+  
+  /* Original theme variables */
+  --font-size: 16px;
+  --background: var(--soma-bg-dark);
+  --foreground: var(--soma-white);
+  --card: var(--soma-bg-card);
+  --card-foreground: var(--soma-white);
+  --primary: var(--soma-purple-primary);
+  --primary-foreground: var(--soma-white);
+  --secondary: var(--soma-purple-secondary);
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: var(--soma-text-gray);
+  --destructive: var(--soma-error);
+  --destructive-foreground: var(--soma-white);
+  --border: var(--soma-border-gray);
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-soma-purple-primary: var(--soma-purple-primary);
+  --color-soma-purple-secondary: var(--soma-purple-secondary);
+  --color-soma-purple-light: var(--soma-purple-light);
+  --color-soma-purple-soft: var(--soma-purple-soft);
+  --color-soma-success: var(--soma-success);
+  --color-soma-error: var(--soma-error);
+  --color-soma-warning: var(--soma-warning);
+  --color-soma-info: var(--soma-info);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+  --color-destructive: var(--destructive);
+}
+
+@layer base {
+  * {
+    outline: none;
+    border-color: var(--soma-border-gray);
+  }
+
+  body {
+    @apply bg-[var(--soma-bg-dark)] text-white overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: 2.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--soma-purple-primary) 0%, var(--soma-purple-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--soma-white);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--soma-white);
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--soma-white);
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--soma-white);
+  }
+
+  /* Background particles effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(140, 82, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(167, 123, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* Glassmorphism utility classes */
+.glass {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-hover:hover {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 24px rgba(140, 82, 255, 0.2);
+}
+
+/* Gradient backgrounds */
+.gradient-purple {
+  background: linear-gradient(135deg, var(--soma-purple-primary) 0%, var(--soma-purple-secondary) 100%);
+}
+
+.gradient-purple-glow {
+  background: linear-gradient(135deg, var(--soma-purple-primary) 0%, var(--soma-purple-secondary) 100%);
+  box-shadow: 0 4px 16px rgba(140, 82, 255, 0.4);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 82, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 82, 255, 0.5);
+}
